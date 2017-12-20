@@ -1,5 +1,9 @@
-/**
+/*
  * webpack 自定义移动资源文件插件
+ * @Author: Simple
+ * @Date: 2017-12-20 11:11:04
+ * @Last Modified by: Simple
+ * @Last Modified time: 2017-12-20 14:09:16
  */
 
 const fs = require('fs');
@@ -63,14 +67,14 @@ const mkDirOrFile = (pathArr) => {
  * @param {*目标文件夹地址} path
  */
 const destSrc = (path) => {
-    const imgs = getResources('./client/assets');
-    const htmls = getResources('./client/views', /\.html$/);
+    const imgs = getResources('./client/static');
+    const htmls = getResources('./client', /\.html$/);
 
     imgs.map(item => mkDirOrFile((`${path}/${item}`).split('/'))); //移动资源文件
 
     htmls.map((item) => mkDirOrFile((`${path}/${item}`).split('/'))); //移动页面文件
 
-    fs.mkdirSync(`${path}/static`);// 直接生成静态化页面目录
+    // fs.mkdirSync(`${path}/static`);// 直接生成静态化页面目录
 };
 
 class MoveResourcesPlugins {
@@ -81,7 +85,6 @@ class MoveResourcesPlugins {
     apply(compiler) {
         destSrc(this.path || 'dist');
         compiler.plugin('compliation', (compliation) => {
-            console.log('--------------');
             console.log(compliation);
         });
     }

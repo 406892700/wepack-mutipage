@@ -5,13 +5,17 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin'); // 友好的错误提示
 
 const ManifestPlugins = require('./tool/ManifestPlugins');// 生成manifest.json
+const getEntries = require('./tool/getEntries');
+const MoveResourcePlugins = require('./tool/MoveResourcesPlugins');
 
 const devConfig = {
     // 应用入口
-    entry: { 
-        index: ['./client/main/index.js', './dev-client'],
-        // act: './client/activity/index.js',
-    },
+    // entry: { 
+    //     index: ['./client/main/index.js', './dev-client'],
+    //     // act: './client/activity/index.js',
+    // },
+
+    entry: getEntries(),
        
     // 应用出口
     output: {
@@ -49,8 +53,16 @@ const devConfig = {
                 exclude: [
                     path.resolve(__dirname, 'node_modules'),
                 ],
-                loader: "babel-loader",
-            }
+                loader: "babel-loader", 
+            },
+            {
+                test: /\.vue$/,
+                include: [
+                    path.resolve(__dirname, "client"),
+                ],
+                exclude: /^node_modules$/,
+                use: 'vue-loader',
+            },
             
         ]
     },
@@ -61,7 +73,9 @@ const devConfig = {
     // 插件
     plugins: [
         // new webpack.optimize.OccurenceOrderPlugin(),
+        // hmr插件
         new webpack.HotModuleReplacementPlugin(),
+        // 报错将不退出插件
         new webpack.NoEmitOnErrorsPlugin(),
         // 友好错误提示插件
         new FriendlyErrorsWebpackPlugin(),
@@ -74,22 +88,14 @@ const devConfig = {
             path: 'dist',
             writeToFileEmit: true,
         }),
-        new HtmlWebpackPlugin({
-            title: '优谷主工程',
-            filename: 'index.html',
-            template: './index.ejs'
-        }),
-        new HtmlWebpackPlugin({
-            title: '优谷活动',
-            filename: 'index_activity.html',
-            template: './index.ejs'
-        })
+        // 自定义资源移动插件
+        new MoveResourcePlugins()
     ],
     resolve: {
         extensions: ['.js', '.vue', '.json', '.jsx'],
-        // alias: {
-        //     '@': resolve('src')
-        // }
+        alias: {
+            vue$: 'vue/dist/vue.esm.js',
+        }
     },
 
 }

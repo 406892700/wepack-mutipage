@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "cross-env NODE_ENV=production webpack --progress --config webpack.production.config.js -p",
-    "start": "node app.js"
+    "start": "node app.js",
+    "startTest": "node config/app.js"
   },
   "author": "Simple",
   "license": "ISC",
@@ -40,10 +41,22 @@
     "webpack": "^2.2.1",
     "webpack-dev-middleware": "^1.10.1",
     "webpack-hot-middleware": "^2.17.0",
-    "webpack-merge": "^4.1.0"
+    "webpack-merge": "^4.1.0",
+    "stylus": "^0.52.4",
+    "stylus-loader": "^3.0.1",
+    "vue-loader": "^12.1.0",
+    "vue-style-loader": "^3.0.1",
+    "vue-template-compiler": "^2.3.3"
   },
   "dependencies": {
     "ejs": "^2.5.7",
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-router": "^3.0.0",
+    "swiper": "^4.0.6",
+    "vue": "^2.3.3",
+    "vue-router": "^2.3.1",
+    "vuex": "^2.3.1"
   }
 }
