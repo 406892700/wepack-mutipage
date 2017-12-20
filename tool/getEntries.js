@@ -2,8 +2,8 @@
  * 获取多页应用webpack入口文件
  * @Author: Simple
  * @Date: 2017-12-20 14:04:30
- * @Last Modified by:   Simple
- * @Last Modified time: 2017-12-20 14:04:30
+ * @Last Modified by: Simple
+ * @Last Modified time: 2017-12-20 18:20:27
  */
 
 const fs = require('fs');
@@ -22,7 +22,7 @@ const getFilePath = (path) => {
     });
 };
 
-getFilePath('./client');
+getFilePath('./client/views');
 
 /**
  * 获取webpack 入口
@@ -37,10 +37,11 @@ const getEntries = (type) => {
     // var hotMiddlewareScript = 'webpack-hot-middleware/client?reload=true';
     const hotMiddlewareScript = './dev-client';
     entries.map((item, i) => {
-        const name = item.slice(0, -3).replace('./client/', '');
+        const name = item.slice(0, -3).replace('./client/views/', '');
         type !== 'production' ? entry[name] = ([item.slice(0, -3), hotMiddlewareScript]) : (entry[name] = item.slice(0, -3));
     });
 
+    console.log('heheehehehehe');
     console.log(entry);
 
     // entry['common-info'] = type !== 'production' ? ['./client/src/libs/common-info', hotMiddlewareScript] : './client/src/libs/common-info';

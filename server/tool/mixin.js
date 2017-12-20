@@ -3,7 +3,7 @@
  * @Author: Simple
  * @Date: 2017-11-09 11:54:30
  * @Last Modified by: Simple
- * @Last Modified time: 2017-12-20 10:30:05
+ * @Last Modified time: 2017-12-20 17:40:26
  */
 const fs = require('fs');
 const path = require('path');
@@ -29,7 +29,7 @@ const mixin = (res) => {
             const cssSrc = commonArgs[`${name}/index/css`];
             const commonJsSrc = commonArgs['common/js'];
             const commonCssSrc = commonArgs['common/css'];
-            const commonInfoJs = commonArgs['common-info/js'];
+            // const commonInfoJs = commonArgs['common-info/js'];
 
             // console.log(jsSrc, cssSrc, commonJsSrc, commonCssSrc);
 
@@ -41,7 +41,7 @@ const mixin = (res) => {
                 cssSrc,
                 commonJsSrc,
                 commonCssSrc,
-                commonInfoJs,
+                // commonInfoJs,
             });
 
             console.log(tempOptions);

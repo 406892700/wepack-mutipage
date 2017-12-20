@@ -3,7 +3,7 @@
  * @Author: Simple
  * @Date: 2017-12-20 11:11:04
  * @Last Modified by: Simple
- * @Last Modified time: 2017-12-20 14:09:16
+ * @Last Modified time: 2017-12-20 16:23:16
  */
 
 const fs = require('fs');
@@ -68,7 +68,7 @@ const mkDirOrFile = (pathArr) => {
  */
 const destSrc = (path) => {
     const imgs = getResources('./client/static');
-    const htmls = getResources('./client', /\.html$/);
+    const htmls = getResources('./client/views', /\.html$/);
 
     imgs.map(item => mkDirOrFile((`${path}/${item}`).split('/'))); //移动资源文件
 

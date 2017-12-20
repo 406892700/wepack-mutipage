@@ -10,11 +10,6 @@ const MoveResourcePlugins = require('./tool/MoveResourcesPlugins');
 
 const devConfig = {
     // 应用入口
-    // entry: { 
-    //     index: ['./client/main/index.js', './dev-client'],
-    //     // act: './client/activity/index.js',
-    // },
-
     entry: getEntries(),
        
     // 应用出口

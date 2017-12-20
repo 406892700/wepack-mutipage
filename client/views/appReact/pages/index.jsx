@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Nav from '../components/Nav.jsx';
+import './index.scss';
 
 class Index extends Component {
     render() {

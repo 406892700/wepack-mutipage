@@ -3,8 +3,9 @@
         ["env", { "modules": false }],
         "es2015",
         "react"
-    ],
-    "plugins": [
-        "transform-runtime"
     ]
+    // ,
+    // "plugins": [
+    //     "transform-runtime"
+    // ]
 }

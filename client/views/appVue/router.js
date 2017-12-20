@@ -14,13 +14,13 @@ export default new Router({
             path: '/',
             name: 'userManage',
             meta: { title: 'index' },
-            component: Index,
+            component: resolve => require(['./pages/Index'], resolve),
         },
         {
             path: '/list',
             name: '33dd',
-            meta: { title: 'index' },
-            component: List,
+            meta: { title: 'list' },
+            component: resolve => require(['./pages/List'], resolve),
         },
     ],
 });
