@@ -23,7 +23,7 @@ const devConfig = {
             {
                 test: /\.(png|jpg|gif|svg)$/,
                 use: 'url-loader?limit=8192&context=client&name=[path][name].[ext]',
-            }, 
+            },
             {
                 test: /\.(scss|css)$/,
                 use: ExtractTextPlugin.extract({
@@ -35,7 +35,7 @@ const devConfig = {
                         'sass-loader',
                     ],
                 }),
-            }, 
+            },
             {
                 test: /\.js$/,
                 // exclude: /node_modules/,
@@ -49,7 +49,7 @@ const devConfig = {
                 // exclude: [
                 //     path.resolve(__dirname, 'node_modules'),
                 // ],
-                loader: "babel-loader", 
+                loader: "babel-loader",
             },
             {
                 test: /\.vue$/,
@@ -107,7 +107,6 @@ const devConfig = {
             vue$: 'vue/dist/vue.esm.js',
         }
     },
-
-}
+};
 
 module.exports = devConfig;

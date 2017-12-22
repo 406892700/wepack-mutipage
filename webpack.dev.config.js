@@ -1,7 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
 
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin'); // 友好的错误提示
 
 const ManifestPlugins = require('./tool/ManifestPlugins');// 生成manifest.json
@@ -24,7 +23,7 @@ const devConfig = {
             {
                 test: /\.(png|jpg|gif|svg)$/,
                 use: 'url-loader?limit=8192&context=client&name=[path][name].[ext]',
-            }, 
+            },
             {
                 test: /\.(scss|css)$/,
                 use: [
@@ -34,7 +33,7 @@ const devConfig = {
                     'postcss-loader?sourceMap',
                     'sass-loader?sourceMap',
                 ],
-            }, 
+            },
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
@@ -48,7 +47,7 @@ const devConfig = {
                 exclude: [
                     path.resolve(__dirname, 'node_modules'),
                 ],
-                loader: "babel-loader", 
+                loader: "babel-loader",
             },
             {
                 test: /\.vue$/,
@@ -62,7 +61,7 @@ const devConfig = {
         ]
     },
     // sourceMap
-    devtool: '#cheap-module-eval-source-map',
+    devtool: 'cheap-module-eval-source-map',
     // 上下文
     context: __dirname,
     // 插件
@@ -84,7 +83,11 @@ const devConfig = {
             writeToFileEmit: true,
         }),
         // 自定义资源移动插件
-        new MoveResourcePlugins()
+        new MoveResourcePlugins(),
+        // new webpack.DllReferencePlugin({
+        //     context: __dirname,
+        //     manifest: require('./dist/manifest.json'),
+        // }),
     ],
     resolve: {
         extensions: ['.js', '.vue', '.json', '.jsx'],
@@ -92,7 +95,6 @@ const devConfig = {
             vue$: 'vue/dist/vue.esm.js',
         }
     },
-
-}
+};
 
 module.exports = devConfig;

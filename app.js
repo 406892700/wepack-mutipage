@@ -44,12 +44,11 @@ const gulp = require('gulp');
     app.use(express.static(path.join(__dirname, './client')));
     app.set('views', path.resolve(__dirname, './client/views'));
     
-    
-    
     devMiddleware.waitUntilValid(() => {
         console.log('构建开始...');
         opn('http://localhost:3001');
-    });    
+    });
+
 } else {
     console.log('fuck!!!!!');
     // 指定静态资源文件夹
