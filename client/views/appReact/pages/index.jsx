@@ -1,33 +1,39 @@
 import React, { Component } from 'react';
-import Nav from '../components/Nav';
 import './index.scss';
+import { connect } from 'react-redux';
+import { toggle } from '../app/actions/testAction';
 
 class Index extends Component {
     constructor() {
         super();
-        this.state = {
-            a: 222
-        };
-
-    }
-
-    fc() {
-        console.log(new Date().getTime());
-    }
-
-    componentDidMount() {
-        this.fc();
     }
 
     render() {
+        const { flag, dispatch } = this.props;
         return (
             <div>
-                <Nav />
-                我是react渲染的index
-                {this.state.a}
+                <button onClick={() => dispatch(toggle())}>点击修改状态3</button>
+                <SubCpt flag={flag}/>
             </div>
         );
     }
 }
 
-export default Index;
+class SubCpt extends Component {
+    render() {
+        const { flag } = this.props;
+        return (
+            <div>
+                {
+                    flag ? '显示' : '隐藏2'
+                }
+            </div>
+        );
+    }
+}
+
+const props = (state) => {
+    return state.toggle;
+};
+
+export default connect(props)(Index);

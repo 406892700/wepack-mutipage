@@ -10,8 +10,8 @@ class App extends Component {
             <Router history={ hashHistory }>
                 <Route path="/" component={ Index }></Route>
                 <Route path="/list" component={ List }></Route>
-            </Router> 
-        )
+            </Router>
+        );
     }
 }
 
