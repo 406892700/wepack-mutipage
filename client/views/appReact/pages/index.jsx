@@ -12,6 +12,7 @@ class Index extends Component {
         const { flag, dispatch } = this.props;
         return (
             <div>
+                <img src={require('./test.png')} alt=""/>
                 <button onClick={() => dispatch(toggle())}>点击修改状态3</button>
                 <SubCpt flag={flag}/>
             </div>

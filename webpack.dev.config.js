@@ -9,7 +9,7 @@ const MoveResourcePlugins = require('./tool/MoveResourcesPlugins');
 
 const devConfig = {
     // 应用入口
-    entry: [...getEntries(), 'react-hot-loader/patch'],
+    entry: getEntries(),
        
     // 应用出口
     output: {
