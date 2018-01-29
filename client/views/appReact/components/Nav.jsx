@@ -5,10 +5,10 @@ class Nav extends Component {
     render() {
         return (
             <div>
-                <Link to="/">首页1</Link>&nbsp;&nbsp;&nbsp;
-                <Link to="/list">列表</Link>
+                <Link to="/">index</Link>&nbsp;&nbsp;&nbsp;
+                <Link to="/about">about</Link>
             </div>
-        )
+        );
     }
 }
 

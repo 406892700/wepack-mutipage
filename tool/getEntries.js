@@ -3,7 +3,7 @@
  * @Author: Simple
  * @Date: 2017-12-20 14:04:30
  * @Last Modified by: Simple
- * @Last Modified time: 2017-12-20 18:20:27
+ * @Last Modified time: 2017-12-27 15:59:53
  */
 
 const fs = require('fs');
@@ -40,8 +40,6 @@ const getEntries = (type) => {
         const name = item.slice(0, -3).replace('./client/views/', '');
         type !== 'production' ? entry[name] = ([item.slice(0, -3), hotMiddlewareScript]) : (entry[name] = item.slice(0, -3));
     });
-
-    console.log('heheehehehehe');
     console.log(entry);
 
     // entry['common-info'] = type !== 'production' ? ['./client/src/libs/common-info', hotMiddlewareScript] : './client/src/libs/common-info';

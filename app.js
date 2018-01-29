@@ -12,8 +12,8 @@ const isDev = process.env.NODE_ENV !== 'production';
 
 if (isDev) {
     const opn = require('opn');
-// const fallback = require('express-history-api-fallback');
-const gulp = require('gulp');
+    // const fallback = require('express-history-api-fallback');
+    const gulp = require('gulp');
     const webpack = require('webpack');
     const webpackConfig = require('./webpack.dev.config');
     const compiler = webpack(webpackConfig);
@@ -28,7 +28,7 @@ const gulp = require('gulp');
     });
     
     gulp.watch([
-        './client/**/*.html', 
+        './client/**/*.html',
         './static/*.*'], (e) => {
         console.log(`${e.path} has ${e.type}, reload current page~`);
         hotMiddleware.publish({ action: 'reload' });
@@ -61,7 +61,7 @@ app.set('view engine', 'html');
 
 // 主工程模块
 app.get('/', (req, res, next) => {
-    const contentBase = config.framework == 'vue' ? 'appVue' : 'appReact';
+    const contentBase = config.framework === 'vue' ? 'appVue' : 'appReact';
     mixin(res).render(contentBase, {});
 });
 
